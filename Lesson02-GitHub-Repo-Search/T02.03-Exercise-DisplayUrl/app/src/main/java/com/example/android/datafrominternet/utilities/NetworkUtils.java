@@ -16,6 +16,7 @@
 package com.example.android.datafrominternet.utilities;
 
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,6 +24,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * These utilities will be used to communicate with the network.
@@ -40,6 +43,10 @@ public class NetworkUtils {
      */
     final static String PARAM_SORT = "sort";
     final static String sortBy = "stars";
+
+    private static final String TAG = "MyActivity";
+
+
 
     /**
      * Builds the URL used to query Github.
@@ -61,6 +68,7 @@ public class NetworkUtils {
         }catch(MalformedURLException e){
             e.printStackTrace();
         }
+        Log.v(TAG, url.toString());
         return url;
     }
 
