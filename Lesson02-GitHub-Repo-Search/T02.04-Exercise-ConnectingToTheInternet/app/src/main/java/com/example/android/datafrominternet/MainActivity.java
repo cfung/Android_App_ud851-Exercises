@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mSearchResultsTextView = (TextView) findViewById(R.id.tv_github_search_results_json);
     }
 
-    /**
+    /*
      * This method retrieves the search text from the EditText, constructs
      * the URL (using {@link NetworkUtils}) for the github repository you'd like to find, displays
      * that URL in a TextView, and finally fires off an AsyncTask to perform the GET request using
@@ -57,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
         // COMPLETED (2) Call getResponseFromHttpUrl and display the results in mSearchResultsTextView
+        String githubSearchResult = null;
         try {
-            mSearchResultsTextView.append(getResponseFromHttpUrl());
+            githubSearchResult = NetworkUtils.getResponseFromHttpUrl(githubSearchUrl);
+            mSearchResultsTextView.setText(githubSearchResult);
         }catch (IOException e){
             e.printStackTrace();
         }
