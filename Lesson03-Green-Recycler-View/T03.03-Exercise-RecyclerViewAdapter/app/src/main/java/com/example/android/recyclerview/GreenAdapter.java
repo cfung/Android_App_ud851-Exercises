@@ -32,13 +32,35 @@ import android.widget.TextView;
  * If you don't like our puns, we named this Adapter GreenAdapter because its
  * contents are green.
  */
-// TODO (4) From GreenAdapter, extend RecyclerView.Adapter<NumberViewHolder>
-public class GreenAdapter {
+// completed (4) From GreenAdapter, extend RecyclerView.Adapter<NumberViewHolder>
+public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder>{
 
-    // TODO (1) Add a private int variable called mNumberItems
+    // completed (1) Add a private int variable called mNumberItems
+    private int mNumberItems;
 
-    // TODO (2) Create a constructor for GreenAdapter that accepts an int as a parameter for numberOfItems
-    // TODO (3) Store the numberOfItems parameter in mNumberItems
+    // completed (2) Create a constructor for GreenAdapter that accepts an int as a parameter for numberOfItems
+    // completed (3) Store the numberOfItems parameter in mNumberItems
+    public void GreenAdapter(int numberOfItems){
+
+        mNumberItems = numberOfItems;
+    }
+
+    @Override
+    public NumberViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(NumberViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+    mNumberItems =
 
     // TODO (5) Override the onCreateViewHolder method
     // TODO (6) Create and return a new NumberViewHolder within this method
