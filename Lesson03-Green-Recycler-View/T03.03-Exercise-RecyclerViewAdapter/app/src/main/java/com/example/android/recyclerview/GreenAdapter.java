@@ -40,9 +40,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     // completed (1) Add a private int variable called mNumberItems
     private int mNumberItems;
 
+
     // completed (2) Create a constructor for GreenAdapter that accepts an int as a parameter for numberOfItems
     // completed (3) Store the numberOfItems parameter in mNumberItems
-    public void GreenAdapter(int numberOfItems){
+    public GreenAdapter(int numberOfItems){
 
         mNumberItems = numberOfItems;
     }
