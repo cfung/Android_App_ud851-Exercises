@@ -51,7 +51,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     // completed (10) Set the font family to monospace
     // completed (11) Set the text size to 42sp
 
-    private static final String TAG = GreenAdapter.class.getSimpleName();
+    private static final String TAG = "debugging..."+GreenAdapter.class.getSimpleName();
 
     private int mNumberItems;
 
@@ -118,17 +118,19 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     }
 
     // completed (12) Create a class called NumberViewHolder that extends RecyclerView.ViewHolder
-    public class NumberViewHolder extends RecyclerView.ViewHolder{
+    class NumberViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView listItemNumberView;
+        TextView listItemNumberView;
 
         public NumberViewHolder(View itemView) {
             super(itemView);
-            listItemNumberView = (TextView) itemView.findViewById(R.id.rv_numbers);
+            listItemNumberView = (TextView) itemView.findViewById(R.id.tv_item_number);
         }
 
-        public void bind(int listIndex) {
+        void bind(int listIndex) {
+            Log.d(TAG, String.valueOf(listIndex));
             listItemNumberView.setText(String.valueOf(listIndex));
+            //listItemNumberView.setText(listIndex.toString());
         }
     }
 
