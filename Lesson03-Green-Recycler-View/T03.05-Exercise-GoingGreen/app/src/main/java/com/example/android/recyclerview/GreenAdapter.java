@@ -77,7 +77,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
         NumberViewHolder viewHolder = new NumberViewHolder(view);
 
-        // TODO (12) Set the text of viewHolderIndex to "ViewHolder index: " + viewHolderCount
+        // completed (12) Set the text of viewHolderIndex to "ViewHolder index: " + viewHolderCount
         viewHolder.viewHolderIndex.setText("ViewHolder index: " + viewHolderCount);
 
         // completed (13) Use ColorUtils.getViewHolderBackgroundColorFromInstance and pass in a Context and the viewHolderCount
