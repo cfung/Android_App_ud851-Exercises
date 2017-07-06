@@ -43,5 +43,5 @@
         android:id="@+id/tv_view_holder_instance"
         android:fontFamily="monospace"
         android:textColor="#000"
-        android:layout_gravity="center_vertical|start"/>
+        android:layout_gravity="center_vertical|end"/>
 </FrameLayout>
