@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
         mNumbersList = (RecyclerView) findViewById(R.id.rv_numbers);
 
         // completed (5) Create a LinearLayoutManager variable called layoutManager
-        LinearLayoutManager layoutManager = null;
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
-        // TODO (6) Use setLayoutManager on mNumbersList with the LinearLayoutManager we created above
-        layoutManager.setLayoutManager(mNumbersList);
+        // completed (6) Use setLayoutManager on mNumbersList with the LinearLayoutManager we created above
+        mNumbersList.setLayoutManager(layoutManager);
 
-        // TODO (7) Use setHasFixedSize(true) to designate that the contents of the RecyclerView won't change an item's size
-        mAdapter.setHasFixedSize(true);
+        // completed (7) Use setHasFixedSize(true) to designate that the contents of the RecyclerView won't change an item's size
+        mNumbersList.setHasFixedSize(true);
 
         // completed (8) Store a new GreenAdapter in mAdapter and pass it NUM_LIST_ITEMS
         mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
