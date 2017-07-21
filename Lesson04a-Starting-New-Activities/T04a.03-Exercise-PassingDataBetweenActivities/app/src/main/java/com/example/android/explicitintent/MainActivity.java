@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                // TODO (1) Retrieve the text from the EditText and store it in a variable
+                // compelted (1) Retrieve the text from the EditText and store it in a variable
+                String mText = mNameEntry.toString();
 
                 /*
                  * Storing the Context in a variable in this case is redundant since we could have
