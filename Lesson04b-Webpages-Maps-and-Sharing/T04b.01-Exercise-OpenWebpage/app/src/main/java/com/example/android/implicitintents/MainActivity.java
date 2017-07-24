@@ -15,6 +15,8 @@
  */
 package com.example.android.implicitintents;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -77,12 +79,22 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    // TODO (1) Create a method called openWebPage that accepts a String as a parameter
+    // completed (1) Create a method called openWebPage that accepts a String as a parameter
+    // completed (2) Use Uri.parse to parse the String into a Uri
+    // completed (3) Create an Intent with Intent.ACTION_VIEW and the webpage Uri as parameters
+    // completed (4) Verify that this Intent can be launched and then call startActivity
     // Do steps 2 - 4 within openWebPage
+    public void openWebPage(String url){
 
-        // TODO (2) Use Uri.parse to parse the String into a Uri
+        Uri mURI = Uri.parse(url);
 
-        // TODO (3) Create an Intent with Intent.ACTION_VIEW and the webpage Uri as parameters
+        Intent mIntent = new Intent(Intent.ACTION_VIEW, mURI);
 
-        // TODO (4) Verify that this Intent can be launched and then call startActivity
+        if (getIntent() != null) {
+            startActivity(mIntent);
+        }
+
+    }
+
+
 }
