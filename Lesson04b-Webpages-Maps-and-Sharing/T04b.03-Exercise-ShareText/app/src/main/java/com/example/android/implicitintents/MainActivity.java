@@ -161,15 +161,15 @@ public class MainActivity extends AppCompatActivity {
         String title = "Learning how to share";
 
 
-        Intent shareIntent = ShareCompat.IntentBuilder.from(this)
+        ShareCompat.IntentBuilder.from(this)
                 .setType(mimeType)
                 .setText(inputString)
                 .setChooserTitle(title)
-                .getIntent();
+                .startChooser();
 
-        if (shareIntent.resolveActivity(getPackageManager()) != null){
-            startActivity(shareIntent);
-        }
+        //if (shareIntent.resolveActivity(getPackageManager()) != null){
+        //    startActivity(shareIntent);
+        //}
 
 
 
