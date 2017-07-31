@@ -18,6 +18,7 @@ package com.example.android.implicitintents;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -143,12 +144,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // TODO (1) Create a void method called shareText that accepts a String as a parameter
+    // completed (1) Create a void method called shareText that accepts a String as a parameter
     // Do steps 2 - 4 within the shareText method
 
-        // TODO (2) Create a String variable called mimeType and set it to "text/plain"
+        // completed (2) Create a String variable called mimeType and set it to "text/plain"
 
-        // TODO (3) Create a title for the chooser window that will pop up
+        // completed (3) Create a title for the chooser window that will pop up
 
-        // TODO (4) Use ShareCompat.IntentBuilder to build the Intent and start the chooser
+        // completed (4) Use ShareCompat.IntentBuilder to build the Intent and start the chooser
+
+    private void shareText(String input){
+
+        String mimeType = "text/plain";
+        String title = "Learning how to share";
+        String textToShare = "hello there";
+
+        Intent shareIntent = ShareCompat.IntentBuilder.from(this)
+                .setType(mimeType)
+                .setText(textToShare)
+                .setChooserTitle(title)
+                .getIntent();
+
+        if (shareIntent.resolveActivity(getPackageManager()) != null){
+            startActivity(shareIntent);
+        }
+
+
+
+    }
 }
