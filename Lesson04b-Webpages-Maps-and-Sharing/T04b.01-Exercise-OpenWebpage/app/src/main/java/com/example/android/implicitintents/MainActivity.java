@@ -37,10 +37,13 @@ public class MainActivity extends AppCompatActivity {
      * @param v Button that was clicked.
      */
     public void onClickOpenWebpageButton(View v) {
-        // TODO (5) Create a String that contains a URL ( make sure it starts with http:// or https:// )
+        // completed (5) Create a String that contains a URL ( make sure it starts with http:// or https:// )
+        String sURL = "http://www.google.com";
 
-        // TODO (6) Replace the Toast with a call to openWebPage, passing in the URL String from the previous step
-        Toast.makeText(this, "TODO: Open a web page when this button is clicked", Toast.LENGTH_SHORT).show();
+
+        // completed (6) Replace the Toast with a call to openWebPage, passing in the URL String from the previous step
+        //Toast.makeText(this, "completed: Open a web page when this button is clicked", Toast.LENGTH_SHORT).show();
+        openWebPage(sURL);
     }
 
     /**
