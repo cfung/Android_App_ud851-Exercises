@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
-        // TODO (9) If the savedInstanceState bundle is not null, set the text of the URL and search results TextView respectively
+        // completed (9) If the savedInstanceState bundle is not null, set the text of the URL and search results TextView respectively
         if (savedInstanceState != null){
             mUrlDisplayTextView.setText(qURL);
             mSearchResultsTextView.setText(rJSON);
