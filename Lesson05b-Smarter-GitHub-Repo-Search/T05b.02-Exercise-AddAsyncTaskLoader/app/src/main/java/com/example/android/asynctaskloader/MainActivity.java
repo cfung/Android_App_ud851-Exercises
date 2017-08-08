@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final String SEARCH_RESULTS_RAW_JSON = "results";
 
     // TODO (2) Create a constant int to uniquely identify your loader. Call it GITHUB_SEARCH_LOADER
-    private static final int GITHUB_SEARCH_LOADER;
+    private static final int GITHUB_SEARCH_LOADER = 22;
 
     private EditText mSearchBoxEditText;
 
@@ -98,8 +98,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // TODO (18) Remove the call to execute the AsyncTask
         new GithubQueryTask().execute(githubSearchUrl);
 
-        // TODO (19) Create a bundle called queryBundle
-        // TODO (20) Use putString with SEARCH_QUERY_URL_EXTRA as the key and the String value of the URL as the value
+        // completed (19) Create a bundle called queryBundle
+        // completed (20) Use putString with SEARCH_QUERY_URL_EXTRA as the key and the String value of the URL as the value
+        Bundle queryBundle = new Bundle();
+        queryBundle.putString(SEARCH_QUERY_URL_EXTRA, githubSearchUrl.toString());
 
         // TODO (21) Call getSupportLoaderManager and store it in a LoaderManager variable
         // TODO (22) Get our Loader by calling getLoader and passing the ID we specified
@@ -150,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             // TODO (8) Force a load
             // END - onStartLoading
-            
+
 
             // TODO (9) Override loadInBackground
 
