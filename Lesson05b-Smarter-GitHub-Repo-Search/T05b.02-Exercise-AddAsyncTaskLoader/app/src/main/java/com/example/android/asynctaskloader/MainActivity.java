@@ -105,9 +105,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Bundle queryBundle = new Bundle();
         queryBundle.putString(SEARCH_QUERY_URL_EXTRA, githubSearchUrl.toString());
 
-        // TODO (21) Call getSupportLoaderManager and store it in a LoaderManager variable
-        // TODO (22) Get our Loader by calling getLoader and passing the ID we specified
-        // TODO (23) If the Loader was null, initialize it. Else, restart it.
+        // completed (21) Call getSupportLoaderManager and store it in a LoaderManager variable
+        // completed (22) Get our Loader by calling getLoader and passing the ID we specified
+        // completed (23) If the Loader was null, initialize it. Else, restart it.
+        LoaderManager loaderManager = getSupportLoaderManager();
+        Loader<String> githubSearchLoader = loaderManager.getLoader(GITHUB_SEARCH_LOADER);
+
+        if (githubSearchLoader == null){
+            loaderManager.initLoader(GITHUB_SEARCH_LOADER, queryBundle, this);
+        }else{
+            loaderManager.restartLoader(GITHUB_SEARCH_LOADER, queryBundle, this);
+        }
+
+
     }
 
     /**
