@@ -80,8 +80,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             // completed (25) Remove the code that displays the JSON
             //mSearchResultsTextView.setText(rawJsonSearchResults);
         }
-
-        // TODO (24) Initialize the loader with GITHUB_SEARCH_LOADER as the ID, null for the bundle, and this for the context
+        // COMPLETED (24) Initialize the loader with GITHUB_SEARCH_LOADER as the ID, null for the bundle, and this for the context
+        /*
+         * Initialize the loader
+         */
+        getSupportLoaderManager().initLoader(GITHUB_SEARCH_LOADER, null, this);
     }
 
     /**
@@ -92,7 +95,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private void makeGithubSearchQuery() {
         String githubQuery = mSearchBoxEditText.getText().toString();
 
-        // TODO (17) If no search was entered, indicate that there isn't anything to search for and return
+        // completed (17) If no search was entered, indicate that there isn't anything to search for and return
+        if (TextUtils.isEmpty(githubQuery)){
+            mUrlDisplayTextView.setText("no query entered, nothing to search for");
+            return;
+        }
 
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
@@ -152,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public Loader<String> onCreateLoader(int id, final Bundle args) {
 
-
+        // Within onCreateLoader
         // completed (4) Return a new AsyncTaskLoader<String> as an anonymous inner class with this as the constructor's parameter
         return new AsyncTaskLoader<String>(this) {
             @Override
@@ -181,30 +188,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             @Override
             protected void onStartLoading(){
                 super.onStartLoading();
-
+                // Within onStartLoading
                 // completed (6) If args is null, return.
                 if (args == null){
                     return;
                 }
                 // completed (7) Show the loading indicator
                 mLoadingIndicator.setVisibility(View.VISIBLE);
+
+                // completed (8) Force a load
+                forceLoad();
+                // END - onStartLoading
             }
         };
     }
-
-    // Within onCreateLoader
-
-
-                // Within onStartLoading
-
-
-
-
-
-            // TODO (8) Force a load
-            // END - onStartLoading
-
-
 
     // completed (13) Override onLoadFinished
     @Override
