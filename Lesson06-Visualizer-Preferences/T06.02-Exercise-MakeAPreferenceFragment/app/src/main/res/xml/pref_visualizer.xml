@@ -5,6 +5,7 @@
         android:defaultValue="true"
         android:key="show_bass"
         android:summaryOff="Hidden"
-        android:summaryOn="Show Bass"
+        android:summaryOn="Shown"
+        android:title="Show Bass"
         />
 </PreferenceScreen>
