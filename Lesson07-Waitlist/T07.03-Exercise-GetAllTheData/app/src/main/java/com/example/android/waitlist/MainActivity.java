@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.android.waitlist.data.TestUtil;
+import com.example.android.waitlist.data.WaitlistContract;
 import com.example.android.waitlist.data.WaitlistDbHelper;
 
 
@@ -32,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
         // Set layout for the RecyclerView, because it's a list we are using the linear layout
         waitlistRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Create an adapter for that cursor to display the data
-        mAdapter = new GuestListAdapter(this);
-
         // completed (2) Create a WaitlistDbHelper instance, pass "this" to the constructor as context
         WaitlistDbHelper dbHelper = new WaitlistDbHelper(this);
 
@@ -44,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
         // completed (4) call insertFakeData from TestUtil and pass the database reference mDb
         TestUtil.insertFakeData(mDb);
 
-        // TODO (7) Run the getAllGuests function and store the result in a Cursor variable
-        Cursor cursor = new Cursor();
-        cursor = getAllGuests();
+        // completed (7) Run the getAllGuests function and store the result in a Cursor variable
+        Cursor cursor = getAllGuests();
 
-        // TODO (12) Pass the resulting cursor count to the adapter
+        // completed (12) Pass the resulting cursor count to the adapter
+        // Create an adapter for that cursor to display the data
+        mAdapter = new GuestListAdapter(this, cursor.getCount());
 
         // Link the adapter to the RecyclerView
         waitlistRecyclerView.setAdapter(mAdapter);
@@ -67,10 +66,18 @@ public class MainActivity extends AppCompatActivity {
     // compelted (5) Create a private method called getAllGuests that returns a cursor
     private Cursor getAllGuests(){
 
-        // TODO (6) Inside, call query on mDb passing in the table name and projection String [] order by COLUMN_TIMESTAMP
-        Cursor guest_cursor = new Cursor();
+        // completed (6) Inside, call query on mDb passing in the table name and projection String [] order by COLUMN_TIMESTAMP
+        //Cursor guest_cursor = new Cursor();
 
-        return guest_cursor;
+        return mDb.query(
+                WaitlistContract.WaitlistEntry.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                WaitlistContract.WaitlistEntry.COLUMN_TIMESTAMP
+        );
     };
 
 }
