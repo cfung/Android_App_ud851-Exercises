@@ -120,12 +120,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void showDefinition() {
 
-        // Change button text
-        mButton.setText(getString(R.string.next_word));
+        if (mData != null){
 
-        // complete (4) Show the definition
-        mCurrentState = STATE_SHOWN;
+            mDefinitionTextview.setVisibility(View.VISIBLE);
+            mButton.setText(getString(R.string.next_word));
+            mCurrentState = STATE_SHOWN;
 
+        }
     }
 
     @Override
@@ -149,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
             // Call the query method on the resolver with the correct Uri from the contract class
             Cursor cursor = resolver.query(DroidTermsExampleContract.CONTENT_URI,
                     null, null, null, null);
+            Log.v("test", "returning cursor is..."+cursor);
             return cursor;
         }
 
@@ -160,11 +162,14 @@ public class MainActivity extends AppCompatActivity {
 
             // Set the data for MainActivity
             mData = cursor;
+            Log.v("test", "cursor is.."+mData);
 
             // complete (2) Initialize anything that you need the cursor for, such as setting up
             // the screen with the first word and setting any other instance variables
-            int wordCol = cursor.getColumnIndex(DroidTermsExampleContract.COLUMN_WORD);
-            int definitionCol = cursor.getColumnIndex(DroidTermsExampleContract.COLUMN_DEFINITION);
+            mDefCol = cursor.getColumnIndex(DroidTermsExampleContract.COLUMN_DEFINITION);
+            mWordCol = cursor.getColumnIndex(DroidTermsExampleContract.COLUMN_WORD);
+            Log.v("test", "mWordCol"+mWordCol);
+
             nextWord();
         }
     }
