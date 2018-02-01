@@ -16,8 +16,10 @@
 
 package com.example.android.todolist;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
@@ -28,6 +30,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
+
+import com.example.android.todolist.data.TaskContract;
+
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity implements
@@ -145,11 +151,22 @@ public class MainActivity extends AppCompatActivity implements
             @Override
             public Cursor loadInBackground() {
                 // Will implement to load data
+                //ContentResolver contentResolver;
 
-                // TODO (5) Query and load all task data in the background; sort by priority
+                // complete (5) Query and load all task data in the background; sort by priority
                 // [Hint] use a try/catch block to catch any errors in loading data
+                try{
 
-                return null;
+                    return getContentResolver().query(TaskContract.TaskEntry.CONTENT_URI,
+                            null,
+                            null,
+                            null,
+                            TaskContract.TaskEntry.COLUMN_PRIORITY);
+
+                } catch(SQLException e){
+                    e.printStackTrace();
+                    return null;
+                }
             }
 
             // deliverResult sends the result of the load, a Cursor, to the registered listener
