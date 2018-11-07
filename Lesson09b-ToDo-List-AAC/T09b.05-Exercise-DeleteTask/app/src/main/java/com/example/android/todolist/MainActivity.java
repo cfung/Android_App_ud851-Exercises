@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     protected void onResume() {
         super.onResume();
-        // TODO (5) Extract the logic to a retrieveTasks method so it can be reused
+        // completed (5) Extract the logic to a retrieveTasks method so it can be reused
         retrieveTasks();
 
     }
